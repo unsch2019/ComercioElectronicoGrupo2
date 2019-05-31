@@ -27,8 +27,11 @@ namespace Datos
         public System.DateTime Fecha { get; set; }
         public Nullable<decimal> Total { get; set; }
         public string Estado { get; set; }
+        public int UsuarioCreacionId { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
     
         public virtual Proveedor Proveedor { get; set; }
+        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EntradaDetalle> EntradaDetalle { get; set; }
     }

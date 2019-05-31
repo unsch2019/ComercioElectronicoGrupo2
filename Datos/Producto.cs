@@ -32,6 +32,8 @@ namespace Datos
         public int MarcaId { get; set; }
         public int CategoriaId { get; set; }
         public string Estado { get; set; }
+        public int UsuarioCreacionId { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
     
         public virtual Categoria Categoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -39,6 +41,7 @@ namespace Datos
         public virtual Marca Marca { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PedidoDetalle> PedidoDetalle { get; set; }
+        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductoImagen> ProductoImagen { get; set; }
     }

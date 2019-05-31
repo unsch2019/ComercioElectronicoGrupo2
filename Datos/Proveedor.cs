@@ -26,8 +26,11 @@ namespace Datos
         public string NumeroDocumento { get; set; }
         public string Correo { get; set; }
         public string Celular { get; set; }
+        public int UsuarioCreacionId { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Entrada> Entrada { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

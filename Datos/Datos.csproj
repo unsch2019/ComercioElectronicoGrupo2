@@ -68,6 +68,9 @@
     <Compile Include="Marca.cs">
       <DependentUpon>ModelComercio.tt</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>ModelComercio.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelComercio.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,6 +102,12 @@
     <Compile Include="Proveedor.cs">
       <DependentUpon>ModelComercio.tt</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>ModelComercio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioMenu.cs">
+      <DependentUpon>ModelComercio.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ModelComercio.edmx">
@@ -114,6 +123,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BD.sql" />
     <Content Include="ModelComercio.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelComercio.Context.cs</LastGenOutput>

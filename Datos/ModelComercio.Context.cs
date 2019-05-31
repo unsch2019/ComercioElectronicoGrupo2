@@ -31,10 +31,13 @@ namespace Datos
         public virtual DbSet<Entrada> Entrada { get; set; }
         public virtual DbSet<EntradaDetalle> EntradaDetalle { get; set; }
         public virtual DbSet<Marca> Marca { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<PedidoDetalle> PedidoDetalle { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<ProductoImagen> ProductoImagen { get; set; }
         public virtual DbSet<Proveedor> Proveedor { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<UsuarioMenu> UsuarioMenu { get; set; }
     }
 }
