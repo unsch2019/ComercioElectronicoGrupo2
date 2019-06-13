@@ -1,1 +1,318 @@
-﻿<h1>Comercio Electronico 2019 nuevo cambio</h1>
+﻿@*<div class="row">
+        <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+        <div class="col s12">
+            <div class="container">
+                <!-- Add new contact popup -->
+                <div style="bottom: 54px; right: 19px;" class="fixed-action-btn direction-top">
+                    <a class="btn-floating btn-large primary-text gradient-shadow modal-trigger" href="#modal1">
+                        <i class="material-icons">person_add</i>
+                    </a>
+                </div>
+                <!-- Add new contact popup Ends-->
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal border-radius-6">
+                    <div class="modal-content">
+                        <h5 class="mt-0">Create new contact</h5>
+                        <hr>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col m6 s12">
+                                        <i class="material-icons prefix"> perm_identity </i>
+                                        <input id="first_name" type="text" class="validate">
+                                        <label for="first_name">First Name</label>
+                                    </div>
+                                    <div class="input-field col m6 s12">
+                                        <i class="material-icons prefix"> perm_identity </i>
+                                        <input id="last_name" type="text" class="validate">
+                                        <label for="last_name">Last Name</label>
+                                    </div>
+                                    <div class="input-field col m6 s12">
+                                        <i class="material-icons prefix"> business </i>
+                                        <input id="company" type="text" class="validate">
+                                        <label for="company">Company</label>
+                                    </div>
+                                    <div class="input-field col m6 s12">
+                                        <i class="material-icons prefix"> business_center </i>
+                                        <input id="business" type="text" class="validate">
+                                        <label for="business">Job Title</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix"> email </i>
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix"> call </i>
+                                        <input id="phone" type="number" class="validate">
+                                        <label for="phone">Phone</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix"> note </i>
+                                        <input id="notes" type="text" class="validate">
+                                        <label for="notes">Notes</label>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn modal-close waves-effect waves-light mr-2">Add Contact</a>
+                    </div>
+                </div>
+                <!-- Modal Structure Ends -->
+                <!-- Sidebar Area Starts -->
+                <div class="sidebar-left sidebar-fixed">
+                    <div class="sidebar">
+                        <div class="sidebar-content">
+                            <div class="sidebar-header">
+                                <div class="sidebar-details">
+                                    <h5 class="m-0 sidebar-title">
+                                        <i class="material-icons app-header-icon text-top">perm_identity</i> Contacts
+                                    </h5>
+                                </div>
+                            </div>
+                            <div id="sidebar-list" class="sidebar-menu list-group position-relative animate fadeLeft delay-1">
+                                <div class="sidebar-list-padding app-sidebar sidenav" id="contact-sidenav">
+                                    <ul class="contact-list display-grid">
+                                        <li class="sidebar-title">Options</li>
+                                        <li><a href="#!" class="text-sub"><i class="material-icons mr-2"> keyboard_arrow_down </i> Import</a></li>
+                                        <li><a href="#!" class="text-sub"><i class="material-icons mr-2"> keyboard_arrow_up </i> Export</a></li>
+                                        <li><a href="#!" class="text-sub"><i class="material-icons mr-2"> print </i> Print</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="#" data-target="contact-sidenav" class="sidenav-trigger hide-on-large-only">
+                                <i class="material-icons">menu</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar Area Ends -->
+                <!-- Content Area Starts -->
+                <div class="content-area content-right">
+                    <div class="app-wrapper">
+
+                        <div class="datatable-search">
+                            <i class="material-icons mr-2 search-icon">search</i>
+                            <input type="text" placeholder="Search Contact" class="app-filter" id="global_filter">
+                        </div>
+                        <div id="button-trigger" class="card card card-default scrollspy border-radius-6 fixed-width">
+                            <div class="card-content p-0">
+                                <table id="dtEjemplo" class="display" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="i in items">
+                                            <td>{{i.Id}}</td>
+                                            <td>{{i.Nombre}}</td>
+                                            <td><i class="material-icons delete">delete_outline</i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Area Ends -->
+
+            </div>
+        </div>
+    </div>
+*@
+@*
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                "use strict";
+                var calcDataTableHeight = function () {
+                    return $(window).height() - 425 + "px";
+                };
+
+                var table = $("#dtEjemplo").DataTable({
+                    sScrollY: calcDataTableHeight(),
+                    scrollCollapse: true,
+                    paging: true,
+                    responsive: true,
+                    lengthMenu: [10],
+                   ajax: {
+                        "url": "@Url.Action("ListarUsuarios","Usuario")",
+                        "dataSrc": ""
+                    },
+                    columns: [
+                        { "data": "Id" },
+                        { "data": "Nombre" },
+
+                    ]
+            });
+
+            // Custom search
+            function filterGlobal() {
+                table.search($("#global_filter").val(), $("#global_regex").prop("checked"), $("#global_smart").prop("checked")).draw();
+            }
+
+            function filterColumn(i) {
+                table
+                    .column(i)
+                    .search(
+                        $("#col" + i + "_filter").val(),
+                        $("#col" + i + "_regex").prop("checked"),
+                        $("#col" + i + "_smart").prop("checked")
+                    )
+                    .draw();
+            }
+
+            $("input#global_filter").on("keyup click", function () {
+                filterGlobal();
+            });
+
+            $("input.column_filter").on("keyup click", function () {
+                filterColumn(
+                    $(this)
+                        .parents("tr")
+                        .attr("data-column")
+                );
+            });
+
+            //  Notifications & messages scrollable
+            if ($("#sidebar-list").length > 0) {
+                var ps_sidebar_list = new PerfectScrollbar("#sidebar-list", {
+                    theme: "dark"
+                });
+            }
+            if ($(".app-page .dataTables_scrollBody").length > 0) {
+                var ps_datatable_body = new PerfectScrollbar(".app-page .dataTables_scrollBody", {
+                    theme: "dark"
+                });
+            }
+
+
+
+
+
+            // Modals Popup
+            $(".modal").modal();
+
+            // Close other sidenav on click of any sidenav
+            if ($(window).width() > 900) {
+                $("#contact-sidenav").removeClass("sidenav");
+            }
+        });
+
+        // Sidenav
+        $(".sidenav-trigger").on("click", function () {
+            if ($(window).width() < 960) {
+                $(".sidenav").sidenav("close");
+                $(".app-sidebar").sidenav("close");
+            }
+        });
+
+        // Select all checkbox on click of header checkbox
+        function toggle(source) {
+            checkboxes = document.getElementsByName("foo");
+            for (var i = 0, n = checkboxes.length; i < n; i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+
+        $(window).on("resize", function () {
+            resizetable();
+            // Draw table with height
+            // table.scrollY = calcDataTableHeight();
+            // table.draw();
+
+            if ($(window).width() > 899) {
+                $("#contact-sidenav").removeClass("sidenav");
+            }
+
+            if ($(window).width() < 900) {
+                $("#contact-sidenav").addClass("sidenav");
+            }
+        });
+
+        function resizetable() {
+            $(".app-page .dataTables_scrollBody").css({
+                // maxHeight: ($(window).height() - 400) + 'px'
+                maxHeight: $(window).height() - 420 + "px"
+            });
+        }
+        resizetable();
+
+        // For contact sidebar on small screen
+        if ($(window).width() < 900) {
+            $(".sidebar-left.sidebar-fixed").removeClass("animate fadeUp animation-fast");
+            $(".sidebar-left.sidebar-fixed .sidebar").removeClass("animate fadeUp");
+        }
+
+        var vapp = new Vue({
+            el: '#main',
+            data: {
+                item: {},
+                itemSel: {},
+                items: [],
+            },
+            created: function () {
+                axios.get('@Url.Action("Listar", "Usuario")', {})
+                .then(r => { this.items = r.data });
+                },
+                methods: {
+                Guardar: function () {
+                axios.post('@Url.Action("Guardar", "Articulo")', { pArticulo: this.item })
+                .then((r) => {
+                if (this.itemSel) {
+                this.itemSel.Nombre = this.item.Nombre;
+                this.itemSel.Codigo = this.item.Codigo;
+                this.itemSel.Costo = Number(this.item.Costo);
+                this.itemSel.Venta = Number(this.item.Venta);
+                this.itemSel.Stock = parseInt(this.item.Stock);
+                this.itemSel.StockMin = parseInt(this.item.StockMin);
+                this.itemSel.Activo = this.item.Activo;
+                this.itemSel.CategoriaId = this.item.CategoriaId;
+                this.itemSel.MarcaId = this.item.MarcaId;
+                } else {
+                this.item.Id = r.data;
+                console.log(this.item);
+                this.items.push(this.item);
+                }
+                $('#modalEditar').modal('close');
+                });
+                },
+                Editar: function (articulo) {
+                if (articulo == null) {
+                this.item = {
+                Id: 0, Venta: 0, Costo: 0, Stock: 1, StockMin: 1, Activo: true,
+                Codigo: '', Nombre: '', CategoriaId: 1, MarcaId: 1
+                };
+                }
+                else
+                this.item = Object.assign({}, articulo);
+
+                this.itemSel = articulo;
+                $('#modalEditar').modal('open');
+                $('#txtCodigo').focus();
+                },
+                Buscar: function () {
+                axios.get('@Url.Action("Listar", "Articulo")', { params: { nombre: this.txtBuscar } })
+                .then(r => this.items = r.data);
+                }
+                },
+                filters: {
+                Fecha: function (date) {
+                return moment(date).format('DD/MM/YYYY h:mm:ss a');
+                },
+                Numero: function (n) {
+                return n.toFixed(2);
+                }
+                }
+                });
+                </script>
+
+                }*@

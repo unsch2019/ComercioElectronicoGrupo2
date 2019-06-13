@@ -158,6 +158,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MarcaController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -496,6 +497,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\ini.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\sweetalert2\sweetalert2.min.css" />
+    <Content Include="Scripts\sweetalert2\sweetalert2.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -507,8 +511,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Marca\Create.cshtml" />
     <Content Include="Views\Marca\Delete.cshtml" />
@@ -531,6 +533,8 @@
     <Content Include="app-assets\vendors\dropify\fonts\dropify.woff" />
     <None Include="packages.config" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Mantener.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Comun\Comun.csproj">

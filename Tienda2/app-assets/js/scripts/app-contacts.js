@@ -12,7 +12,7 @@ $(document).ready(function() {
       scrollCollapse: true,
       paging: true,
       responsive: true,
-      lengthMenu: [15],
+      lengthMenu: [10],
       aoColumns: [
          {
             bSortable: false
@@ -22,7 +22,9 @@ $(document).ready(function() {
          },
          null,
          null,
-         null,
+          {
+              bSortable: false
+          },
          {
             bSortable: false
          },

@@ -138,6 +138,6 @@ CREATE TABLE UsuarioMenu(
 INSERT INTO menu(Id,Nombre,Modulo,Icono,IndPadre,Referencia) VALUES (10, 'Seguridad', 'Usuario','mdi-hardware-security', 1, null);
 INSERT INTO menu(Id,Nombre,Modulo,Icono,IndPadre,Referencia) VALUES (11, 'Usuarios', 'Usuario', 	null,0, 10);
 
-INSERT INTO usuario VALUES ('Administrador', 'admin@gmail.com', 'admin@gmail.com',null,1, 0);
+INSERT INTO usuario VALUES ('Administrador', 'admin@gmail.com', '123',null,1, 0);
 
 INSERT INTO UsuarioMenu(UsuarioId,MenuId) VALUES (1,11);

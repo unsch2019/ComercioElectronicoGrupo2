@@ -14,6 +14,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="~/app-assets/images/favicon/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/vendors.min.css">
+    <link href="~/Scripts/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/app-assets/css/themes/vertical-modern-menu-template/materialize.css">
     <link rel="stylesheet" type="text/css" href="~/app-assets/css/themes/vertical-modern-menu-template/style.css">
     <link rel="stylesheet" type="text/css" href="~/app-assets/css/pages/login.css">
@@ -25,7 +26,7 @@
             <div class="container">
                 <div id="login-page" class="row">
                     <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">
-                        <form class="login-form" method="post" action='@Url.Action("Autenticar","Login")'>
+                        <form id="form1" class="login-form" method="post" action='@Url.Action("Autenticar","Login")'>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <h5 class="ml-4">@empresa</h5>
@@ -34,14 +35,14 @@
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix pt-2">person_outline</i>
-                                    <input id="username" type="text" name="Usuario">
+                                    <input id="username" type="text" name="Usuario" value="admin@gmail.com">
                                     <label for="username" class="center-align">Correo Electrónico</label>
                                 </div>
                             </div>
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix pt-2">lock_outline</i>
-                                    <input id="password" type="password" name="Clave">
+                                    <input id="password" type="password" name="Clave" value="123">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
@@ -67,7 +68,63 @@
         </div>
     </div>
     <script src="~/app-assets/js/vendors.min.js" type="text/javascript"></script>
+    <script src="~/app-assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.form.min.js"></script>
+    <script src="~/Scripts/sweetalert2/sweetalert2.min.js"></script>
     <script src="~/app-assets/js/plugins.js" type="text/javascript"></script>
     <script src="~/Scripts/ini.js"></script>
+    <script>
+        async function nuevaclave(id, user) {
+            Swal.fire({
+                title: 'Cambio de Clave ' + user ,
+                input: 'text',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                //showCancelButton: true,
+                confirmButtonText: 'Cambiaré mi clave',
+                showLoaderOnConfirm: true,
+                preConfirm: (cambio) => {
+                    return $.post('@Url.Action("CambiarClave", "Login")',
+                        { id: id, usuario: user, clave: cambio })
+                        .done(function (data) {
+                            if (data.response)
+                                return data;
+                            else {
+                                Swal.showValidationMessage(
+                                    `Error: ${data.message}`
+                                );
+                            }
+                        });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = "/";
+                }
+            });
+
+            @*const { value: cambio } = await Swal.fire({
+                title: 'Cambio de Clave',
+                input: 'text',
+                inputValue: '',
+                //allowEscapeKey: false,
+                allowOutsideClick: false,
+                confirmButtonText: 'Cambiare mi clave',
+                //showCancelButton: true,
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'El Campo es Requerido!'
+                    }
+                }
+            })
+            if (cambio) {
+                $.post('@Url.Action("CambiarClave", "Login")', { id: id, usuario: user, clave: cambio })
+                    .done(function (data) {
+                        window.location.href = '@Url.Action("Index","Home")';
+                    });
+            }*@
+        }
+    </script>
 </body>
 </html>
