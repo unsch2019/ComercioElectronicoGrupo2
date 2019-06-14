@@ -1,32 +1,45 @@
-﻿@model IEnumerable<Datos.Marca>
+﻿@model List<Datos.Marca>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h1>MANTENIMIENTO DE MARCAS</h1>
-
-<p>
-    @Html.ActionLink("Crear Marca", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Denominacion)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Denominacion)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div id="bordered-table" class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="card-title">
+                    <div class="row">
+                        <div class="col s8 m6 l10">
+                            <h4 class="card-title">Marcas</h4>
+                        </div>
+                        <div class="col s4 m6 l2">
+                            <a class="btn-small blue right" href="@Url.Action("Mantener","Marca", new { id=0})"><i class="material-icons left">add</i>Nuevo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                    </div>
+                    <div class="col s12">
+                        <table class="bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Denominacion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a href="@Url.Action("Mantener","Marca",new { id=item.Id})"><i class="material-icons">edit</i></a>
+                                        </td>
+                                        <td>@item.Denominacion</td>                                        
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
