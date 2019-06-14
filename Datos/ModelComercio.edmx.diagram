@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="500f525a32e248429aba95785d0280b9" Name="Diagram1">
+        <EntityTypeShape EntityType="ComercioModel.Categoria" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="ComercioModel.Cliente" Width="1.5" PointX="3.75" PointY="2.25" />
+        <EntityTypeShape EntityType="ComercioModel.Direccion" Width="1.5" PointX="3.75" PointY="25.375" />
+        <EntityTypeShape EntityType="ComercioModel.Entrada" Width="1.5" PointX="5.25" PointY="14.375" />
+        <EntityTypeShape EntityType="ComercioModel.EntradaDetalle" Width="1.5" PointX="7.5" PointY="12.5" />
+        <EntityTypeShape EntityType="ComercioModel.Marca" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="ComercioModel.Menu" Width="1.5" PointX="3.75" PointY="29" />
+        <EntityTypeShape EntityType="ComercioModel.Pedido" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="ComercioModel.PedidoDetalle" Width="1.5" PointX="8.25" PointY="9" />
+        <EntityTypeShape EntityType="ComercioModel.Producto" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="ComercioModel.ProductoImagen" Width="1.5" PointX="5.25" PointY="6.125" />
+        <EntityTypeShape EntityType="ComercioModel.Proveedor" Width="1.5" PointX="3" PointY="20.75" />
+        <EntityTypeShape EntityType="ComercioModel.Usuario" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="ComercioModel.UsuarioMenu" Width="1.5" PointX="6" PointY="9.125" />
+        <AssociationConnector Association="ComercioModel.FK__Producto__Catego__65C116E7" />
+        <AssociationConnector Association="ComercioModel.FK__Pedido__ClienteI__7132C993" />
+        <AssociationConnector Association="ComercioModel.FK__Direccion__Clien__6E565CE8" />
+        <AssociationConnector Association="ComercioModel.FK__Pedido__Direccio__7226EDCC" />
+        <AssociationConnector Association="ComercioModel.FK__Entrada__Proveed__7BB05806" />
+        <AssociationConnector Association="ComercioModel.FK__Entrada__Usuario__7CA47C3F" />
+        <AssociationConnector Association="ComercioModel.FK__EntradaDe__Entra__7F80E8EA" />
+        <AssociationConnector Association="ComercioModel.FK__EntradaDe__Produ__00750D23" />
+        <AssociationConnector Association="ComercioModel.FK__Producto__MarcaI__64CCF2AE" />
+        <AssociationConnector Association="ComercioModel.FK__UsuarioMe__MenuI__07220AB2" />
+        <AssociationConnector Association="ComercioModel.FK__PedidoDet__Pedid__75035A77" />
+        <AssociationConnector Association="ComercioModel.FK__PedidoDet__Produ__75F77EB0" />
+        <AssociationConnector Association="ComercioModel.FK__Producto__Usuari__66B53B20" />
+        <AssociationConnector Association="ComercioModel.FK__ProductoI__Produ__6991A7CB" />
+        <AssociationConnector Association="ComercioModel.FK__Proveedor__Usuar__78D3EB5B" />
+        <AssociationConnector Association="ComercioModel.FK__UsuarioMe__Usuar__062DE679" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
